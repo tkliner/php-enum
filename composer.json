@@ -1,0 +1,51 @@
+{
+  "name": "speedy/php-enum",
+  "type": "library",
+  "description": "PHP Enum implementation",
+  "keywords": [
+    "enum",
+    "php"
+  ],
+  "homepage": "https://github.com/tkliner/php-enum",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tomáš Kliner",
+      "email": "kliner.tomas@gmail.com"
+    }
+  ],
+  "require-dev": {
+    "symfony/var-dumper": "^3.1",
+    "phpunit/phpunit": "^6.5.0",
+    "squizlabs/php_codesniffer": "3.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Speedy\\Enum\\": "src/"
+    },
+    "exclude-from-classmap": [
+      "/tests/"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Speedy\\Tests\\Enum\\": "tests/"
+    }
+  },
+  "require": {
+    "php": ">=7.0"
+  },
+  "scripts": {
+    "build": [
+      "@composer install --no-progress --no-interaction",
+      "@test"
+    ],
+    "install-prod": [
+      "@composer install --no-dev",
+      "@composer dump-autoload --optimize"
+    ],
+    "test": [
+      "phpunit"
+    ]
+  }
+}
