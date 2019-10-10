@@ -149,4 +149,21 @@ class EnumMockTest extends TestCase
         ];
     }
 
+    /**
+     * @dataProvider searchValueByKeyDataSet
+     */
+    public function testGetValueByKey($input, $class, $excepted)
+    {
+        $this->assertSame($excepted, $class::getValueByKey($input));
+    }
+
+    public function searchValueByKeyDataSet()
+    {
+        return [
+            ['STRING_FIRST', EnumMock::class, 'first'],
+            ['STRING_SECOND', EnumMock::class, 'second'],
+            ['string_first', EnumMock::class, null],
+            [null, EnumMock::class, null],
+        ];
+    }
 }
