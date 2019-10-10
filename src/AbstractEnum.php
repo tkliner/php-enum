@@ -181,4 +181,18 @@ abstract class AbstractEnum
 
         return isset($constArray[$key]);
     }
+
+    /**
+     * Return value which is match by key
+     *
+     * @param $key
+     * @return mixed|null
+     * @throws \ReflectionException
+     */
+    public static function getValueByKey($key)
+    {
+        $constArray = static::toArray();
+
+        return $constArray[$key] ?? null;
+    }
 }
